@@ -7,9 +7,8 @@ function myfunction() {
     //let fromQuery       =   `${from}`;
     //you dont need this, you already declared it
     //let toQuery         =   `${to}`;
-    fetch(`https://free.currencyconverterapi.com/api/v5/convert?q=${from}_${to}&compact=ultra`).then(function (response) {
-        return response.json();
-    }).then(function (rates) {
+    fetch(`https://free.currencyconverterapi.com/api/v5/convert?q=${from}_${to}&compact=ultra`).then(response => response.json()
+    ).then(rates => {
         for (let rate in rates) {
             console.log(rates[rate]);
             let calc = rates[rate]; //You need to pass rate back into the object to get the value
