@@ -59,7 +59,7 @@ self.addEventListener('fetch', (event) => {
     );
 })
 
-self.addEventListener('fetch', function(e) {
+/* self.addEventListener('fetch', function(e) {
 
     var dataUrl = 'https://free.currencyconverterapi.com/api/v5/convert?';
 
@@ -105,7 +105,7 @@ self.addEventListener('fetch', function(e) {
   
     }
   
-  });
+  }); */
 
 
 self.addEventListener('message', function (event) {
