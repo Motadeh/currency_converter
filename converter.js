@@ -16,17 +16,7 @@ function myfunction() {
             console.log(total);
             toAmount.value = total;
 
-            localStorage.setItem(`${from}_${to}`, calc);
-        }
-    }).catch(function(){
-        const storedrate = localStorage.getItem(`${from}_${to}`);
-        if(storedrate){
-            let total = (storedrate * fromAmount);
-            console.log(total)
-        }
-        else {
-            console.log ('not available')
+           
         }
     })
-    localStorage.setItem('watch', 'buy');
 }
