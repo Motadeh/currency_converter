@@ -55,17 +55,17 @@ fetch('https://free.currencyconverterapi.com/api/v5/currencies').then(response =
 });
 
 
-let rates;
+let exchangerates;
 fetch('https://free.currencyconverterapi.com/api/v5/convert').then(response => response.json()).then(function(converts) {
     dbPromise.then(db => {
         if(!db) return;
 
         rates = [converts.results];
 
-        const ty = db.transaction('rate', 'readwrite');
-        const store = ty.objectStore('rate');
+        const ty = db.transaction('rates', 'readwrite');
+        const store = ty.objectStore('rates');
 
-        rates.forEach(countryrate => {
+        exchangerates.forEach(countryrate => {
             for (let value in countryrate){
                 store.put(countryrate[value]);
             }

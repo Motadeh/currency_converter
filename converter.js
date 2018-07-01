@@ -16,7 +16,17 @@ function myfunction() {
             console.log(total);
             toAmount.value = total;
 
-           
+        dbPromise.then(db => {
+            const ty = db.transaction('rates', 'readwrite');
+            const rates = tx.objectStore('rates');
+
+            rates.put({
+                rate: rate_value,
+                id: `${from}_${to}`
+            });
+            return ty.complete;
+        });
+        return rate_value;
         }
     })
 }
