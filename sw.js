@@ -60,7 +60,7 @@ self.addEventListener('activate', (event) => {
 }) */
 
 self.addEventListener('fetch', function(event) {
-    var dataUrl = 'https://free.currencyconverterapi.com/api/v5/convert?';
+    /* var dataUrl = 'https://free.currencyconverterapi.com/api/v5/convert?';
     if (event.request.url.includes(dataUrl)) {
       event.respondWith(
           fetch(event.request).then( (res) => {
@@ -75,7 +75,9 @@ self.addEventListener('fetch', function(event) {
               return caches.match(event.request);
           })
       );
-    } else {
+    }  */
+    // else {
+        
         console.log('[ServiceWorker] Fetch', event.request.url);
         event.respondWith(
             caches.match(event.request).then(function (response) {
@@ -87,7 +89,7 @@ self.addEventListener('fetch', function(event) {
             })
         );
     }
-  });
+//   });
 
 
 self.addEventListener('message', function (event) {
