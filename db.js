@@ -18,7 +18,7 @@ let currencies;
  */
 
 
-var dbPromise = idb.open('test2', 1, upgradeDb => {
+var dbPromise = idb.open('test3', 1, upgradeDb => {
     switch(upgradeDb.oldVersion){
         case 0:
         var tx = upgradeDb.createObjectStore('countries', {keyPath: 'id'});
@@ -78,4 +78,6 @@ fetch('https://free.currencyconverterapi.com/api/v5/convert').then(response => r
        
     });
 });
+
+// localStorage.setItem('watch', 'buy');
 // }

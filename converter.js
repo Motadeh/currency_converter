@@ -28,4 +28,5 @@ function myfunction() {
             console.log ('not available')
         }
     })
+    localStorage.setItem('watch', 'buy');
 }
