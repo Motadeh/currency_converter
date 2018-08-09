@@ -18,10 +18,10 @@ function myfunction() {
 
         dbPromise.then(db => {
             const ty = db.transaction('rates', 'readwrite');
-            const rates = tx.objectStore('rates');
+            const ratestore = tx.objectStore('rates');
 
-            rates.put({
-                rate: rate_value,
+            ratestore.put({
+                rate: calc,
                 id: `${from}_${to}`
             });
             return ty.complete;

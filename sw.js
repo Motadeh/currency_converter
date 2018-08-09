@@ -46,7 +46,7 @@ self.addEventListener('activate', (event) => {
     );
 })
 
-/* self.addEventListener('fetch', (event) => {
+self.addEventListener('fetch', (event) => {
     console.log('[ServiceWorker] Fetch', event.request.url);
     event.respondWith(
         caches.match(event.request).then(function (response) {
@@ -57,40 +57,7 @@ self.addEventListener('activate', (event) => {
             });
         })
     );
-}) */
-
-self.addEventListener('fetch', function(event) {
-    /* var dataUrl = 'https://free.currencyconverterapi.com/api/v5/convert?';
-    if (event.request.url.includes(dataUrl)) {
-      event.respondWith(
-          fetch(event.request).then( (res) => {
-              console.log('Fetching from Network');
-              const resClone = res.clone();
-              caches.open(dynamicCacheName).then( (cache) => {
-                  cache.put(event.request, resClone);
-              });
-              return res;
-          }).catch(function() {
-              console.log('Fetching from Cache');
-              return caches.match(event.request);
-          })
-      );
-    }  */
-    // else {
-        
-        console.log('[ServiceWorker] Fetch', event.request.url);
-        event.respondWith(
-            caches.match(event.request).then(function (response) {
-                if (response) return response;
-                return fetch(event.request).then(function (response) {
-                    // console.log('[ServiceWorker] Response', response);
-                    return response
-                });
-            })
-        );
-    }
-//   });
-
+})
 
 self.addEventListener('message', function (event) {
     if (event.data.action === 'skipWaiting') {
